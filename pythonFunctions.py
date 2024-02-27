@@ -40,11 +40,74 @@ def greeting():
 # The aim of this assignment is to build a basic calculator that can perform addition, subtraction, multiplication, and division.
 
 # Task 1: Create functions for each arithmetic operation.
+def addition(num1, num2):
+    print(num1 + num2)
 
+# addition(3,4)
 
+def subtraction(num1, num2):
+    print(num1 - num2)
+
+# subtraction(23, 14)
+
+def multiplication(num1, num2):
+    print(num1 * num2)
+# multiplication(9,3)
+
+def division(num1, num2):
+    print(num1 / num2)
+
+# division(10, 5)
 
 # Task 2: Implement user input to receive numbers and an operation choice.
+def operationChoice():
+    operation = input("choose an arithmetic operation (add, subtract, times, divide: respond with (1,2,3,4) ")
+    if operation == '1':
+        num1 = int(input("enter a number "))
+        num2 = int(input("enter second number "))
+        addition(num1, num2)
+    elif operation == '2':
+        num1 = int(input("enter a number "))
+        num2 = int(input("enter second number "))
+        subtraction(num1, num2)
+    elif operation == '3':
+        num1 = int(input("enter a number "))
+        num2 = int(input("enter second number "))
+        multiplication(num1, num2)
+    elif operation == '4':
+        num1 = int(input("enter a number "))
+        num2 = int(input("enter second number "))
+        division(num1, num2)
+    else:
+        print("Invalid Response")
+# operationChoice()
+
 # Task 3: Ensure your program can handle division by zero and other potential errors.
+def operationChoice():
+    operation = input("choose an arithmetic operation (add, subtract, times, divide: respond with (1,2,3,4) ")
+    if operation == '1':
+        num1 = int(input("enter a number "))
+        num2 = int(input("enter second number "))
+        addition(num1, num2)
+    elif operation == '2':
+        num1 = int(input("enter a number "))
+        num2 = int(input("enter second number "))
+        subtraction(num1, num2)
+    elif operation == '3':
+        num1 = int(input("enter a number "))
+        num2 = int(input("enter second number "))
+        multiplication(num1, num2)
+    elif operation == '4':
+        num1 = int(input("enter a number "))
+        num2 = int(input("enter second number "))
+        if num2 == 0:
+            print("CAN'T DIVIDE BY ZERO")
+        else:
+            division(num1, num2)
+    else:
+        print("Invalid Response")
+operationChoice()
+
 
 # 3. The Temperature Converter
 # Objective:
