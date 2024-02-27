@@ -3,14 +3,46 @@
 # The aim of this assignment is to create a simple program that greets users and responds based on their input.
 
 # Task 1: Code a program that asks for the user's name and prints a personalized greeting.
+def greeting():
+    name = input("What is your name? ")
+    print(f"Pleased to meet you {name}!!!")
+
+# greeting()
+    
 # Task 2: Modify the program to ask the user how they are feeling today and respond with a comforting message if they're feeling down, or a cheerful one if they're happy.
+def greeting():
+    name = input("What is your name? ")
+    print(f"Pleased to meet you {name}!!!")
+    mood = input("How are you feeling today?: (Down/Cheerful): ")
+    if mood.lower() == "down":
+        print(f"Cheerup {name} it'll all get better :P")
+    if mood.lower() == "cheerful":
+        print(f"That's what we love to hear!!!")
+# greeting()
+        
 # Task 3: Add error handling to ensure that the user inputs a string for their name and not a number or special character.
+def greeting():
+    name = input("What is your name? ")
+    if name.isalpha():
+        print(f"Pleased to meet you {name}")
+        mood = input("How are you feeling today?: (Down/Cheerful): ")
+        if mood.lower() == "down":
+            print(f"Cheerup {name} it'll all get better :P")
+        if mood.lower() == "cheerful":
+            print(f"That's what we love to hear!!!")
+    else:
+        print("INVALID RESPONSE")
+# greeting()
+
 
 # 2. The Calculator App
 # Objective:
 # The aim of this assignment is to build a basic calculator that can perform addition, subtraction, multiplication, and division.
 
 # Task 1: Create functions for each arithmetic operation.
+
+
+
 # Task 2: Implement user input to receive numbers and an operation choice.
 # Task 3: Ensure your program can handle division by zero and other potential errors.
 
