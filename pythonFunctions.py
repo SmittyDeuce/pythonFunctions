@@ -85,19 +85,21 @@ def operationChoice():
 # Task 3: Ensure your program can handle division by zero and other potential errors.
 def operationChoice():
     operation = input("choose an arithmetic operation (add, subtract, times, divide: respond with (1,2,3,4) ")
-    if operation == '1':
+    if operation.isalpha():
+        print("Respoond with 1,2,3,4")
+    elif int(operation) == 1:
         num1 = int(input("enter a number "))
         num2 = int(input("enter second number "))
         addition(num1, num2)
-    elif operation == '2':
+    elif int(operation) == 2:
         num1 = int(input("enter a number "))
         num2 = int(input("enter second number "))
         subtraction(num1, num2)
-    elif operation == '3':
+    elif int(operation) == 3:
         num1 = int(input("enter a number "))
         num2 = int(input("enter second number "))
         multiplication(num1, num2)
-    elif operation == '4':
+    elif int(operation) == 4:
         num1 = int(input("enter a number "))
         num2 = int(input("enter second number "))
         if num2 == 0:
@@ -106,22 +108,52 @@ def operationChoice():
             division(num1, num2)
     else:
         print("Invalid Response")
-operationChoice()
+# operationChoice()
 
 
 # 3. The Temperature Converter
 # Objective:
 # The aim of this assignment is to write a program that converts temperatures between Fahrenheit and Celsius.
-
 # Task 1: Code a function that converts Celsius to Fahrenheit.
-# Task 2: Code a function that converts Fahrenheit to Celsius.
-# Task 3: Implement a user interface that asks the user which conversion they want to perform and calls the appropriate function.
+def celsius_to_fahrenheit(temperature):
+    resInFahrenheit = (temperature * 9/5) + 32
+    print(resInFahrenheit)
+# celsius_to_fahrenheit(3)
 
+# Task 2: Code a function that converts Fahrenheit to Celsius.
+def fahrenheit_to_celsius(temperature):
+    resInCelsius = (temperature - 32) * 5/9
+    print(resInCelsius)
+# fahrenheit_to_celsius(3)
+
+# Task 3: Implement a user interface that asks the user which conversion they want to perform and calls the appropriate function.
+def tempConversion():
+    celsiusOrFahrenheit = input("press 'C' to convert Celsius to Fahrenheit 'F' to convert Fahrenheit to Celsius ")
+    if celsiusOrFahrenheit.lower() == "c":
+        temperature = int(input("Enter a temp "))
+        celsius_to_fahrenheit(temperature)
+    elif celsiusOrFahrenheit.lower == "f":
+        temperature = int(input("Enter a temp "))
+        fahrenheit_to_celsius(temperature)
+    else:
+        print("Invalid Response")
+# tempConversion()
+        
 # 4. The Shopping List Maker
 # Objective:
 # The aim of this assignment is to create a program that helps users make a shopping list.
 
 # Task 1: Write a function that lets the user add items to a list.
+shoppingList = []
+def listMaker():
+    addItem = "what would you like to add? "
+    while addItem "nothing":
+        shoppingList.append(addItem)
+listMaker()
+
+
+
+
 # Task 2: Include a feature to remove items from the list.
 # Task 3: Add a function that prints out the entire list in a formatted way.
 
