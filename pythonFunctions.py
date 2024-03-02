@@ -144,18 +144,66 @@ def tempConversion():
 # The aim of this assignment is to create a program that helps users make a shopping list.
 
 # Task 1: Write a function that lets the user add items to a list.
-shoppingList = []
-def listMaker():
-    addItem = "what would you like to add? "
-    while addItem "nothing":
-        shoppingList.append(addItem)
-listMaker()
+# def listMaker():
+#     shoppingList =[]
+#     while True:
+#         addItem = input("What would you like to add? (enter 'done' to finish) ")
+#         if addItem.lower() == "done":
+#             break
+#         else:
+#             shoppingList.append(addItem)
+#             print(shoppingList)
+# listMaker()
 
 
 
 
 # Task 2: Include a feature to remove items from the list.
+def listMaker():
+    shoppingList =[]
+    while True:
+        addItem = input("What would you like to add? (enter 'done' to finish) ")
+        if addItem.lower() == "done":
+            break
+        else:
+            shoppingList.append(addItem)
+            print(shoppingList)
+    
+    while True:
+        completed = input("What have you managed to acquire? (enter 'done when finished) ")
+        if completed.lower() == "done":
+            print("here is your List:", shoppingList)
+            break
+        else:
+            shoppingList.remove(completed)
+            print("Here is your updated list:",shoppingList)
+# listMaker()
+
+
 # Task 3: Add a function that prints out the entire list in a formatted way.
+def listMaker():
+    shoppingList =[]
+    while True:
+        addItem = input("What would you like to add? (enter 'done' to finish) ")
+        if addItem.lower() == "done":
+            break
+        else:
+            shoppingList.append(addItem)
+            print(shoppingList)
+    
+    while True:
+        completed = input("What have you managed to acquire? (enter 'done when finished) ")
+        if completed.lower() == "done":
+            print("here is your List:", shoppingList)
+            break
+        else:
+            shoppingList.remove(completed)
+            print("Here is your updated list:",shoppingList)
+
+    for items in shoppingList:
+        print(f" you still need to buy {items}")
+listMaker()
+
 
 # 5. The Grade Analyzer
 # Objective:
