@@ -256,6 +256,27 @@ def letterGrades(gradelist):
 # The aim of this assignment is to create a simple daily planner that can add, remove, and display tasks.
 
 # Task 1: Write a function to add a task with a time slot.
+from datetime import datetime
+def taskTimeSlot():
+    taskObj ={}
+    while True:
+        taskName = input("What is the Task: (enter 'done' when finished) ")
+        if taskName.lower() == 'done':
+            print(f"Todays timeframe and tasks: {taskObj}")
+            break
+        else:
+            taskTime = input("What time do you need to start this task: (1-24) ")
+            taskTime = int(taskTime)
+            if taskTime > 24 or taskTime < 1:
+                print("respond with num: 1-24 ")
+                continue
+            if taskTime not in taskObj:
+                taskObj[taskTime] = []
+            taskObj[taskTime].append(taskName)
+            print(taskObj)
+
+
+taskTimeSlot()
 # Task 2: Code a function to remove a task.
 # Task 3: Implement a display function that shows all tasks in order of time.
 
