@@ -276,9 +276,115 @@ def taskTimeSlot():
             print(taskObj)
 
 
-taskTimeSlot()
+# taskTimeSlot()
 # Task 2: Code a function to remove a task.
+def taskTimeSlot():
+    taskObj ={}
+    while True:
+        taskName = input("What is the Task: (enter 'done' when finished) ")
+        if taskName.lower() == 'done':
+            print(f"Todays timeframe and tasks: {taskObj}")
+            break
+        else:
+            taskTime = input("What time do you need to start this task: (1-24) ")
+            taskTime = int(taskTime)
+            if taskTime > 24 or taskTime < 1:
+                print("respond with num: 1-24 ")
+                continue
+            if taskTime not in taskObj:
+                taskObj[taskTime] = []
+            taskObj[taskTime].append(taskName)
+            print(taskObj)
+
+    while True:
+        timeOrTask = input("have you completed full timeslot or certain task?: (enter time/task) ")
+        if timeOrTask.lower() == "time":
+            whatTime = input("what time slots have been completed?: 1-24 (enter 'done' when finished) ")
+            if whatTime.lower() == 'done':
+                print(f"timeframe and tasks: {taskObj}")
+                break
+            elif int(whatTime) in taskObj:
+                del taskObj[int(whatTime)]
+                print(f"here is updated time and task list: {taskObj}")
+            else:
+                print("invalid response")
+                continue
+        elif timeOrTask.lower() == 'task':
+            whatTask = input("what task has been completed: (enter 'done' when finished) ")
+            to_remove = []
+            for key, value in taskObj.items():
+                if whatTask in value:
+                    value.remove(whatTask)
+                    print(f"here is updated {taskObj}")
+                    if not value:
+                        to_remove.append(key)
+            for key in to_remove:
+                del taskObj[key]
+            else:
+                print("invalid response")
+        else:
+            print("please enter 'time' or 'task'")
+
+# taskTimeSlot()
 # Task 3: Implement a display function that shows all tasks in order of time.
+def taskTimeSlot():
+    taskObj ={}
+    while True:
+        taskName = input("What is the Task: (enter 'done' when finished) ")
+        if taskName.lower() == 'done':
+            print(f"Todays timeframe and tasks: {taskObj}")
+            break
+        else:
+            taskTime = input("What time do you need to start this task: (1-24) ")
+            taskTime = int(taskTime)
+            if taskTime > 24 or taskTime < 1:
+                print("respond with num: 1-24 ")
+                continue
+            if taskTime not in taskObj:
+                taskObj[taskTime] = []
+            taskObj[taskTime].append(taskName)
+            print(taskObj)
+
+    while True:
+        timeOrTask = input("have you completed full timeslot or certain task?: (enter time/task) enter 'no' if you haven't ")
+        if timeOrTask.lower() == "time":
+            whatTime = input("what time slots have been completed?: 1-24 (enter 'done' when finished) ")
+            if whatTime.lower() == 'done':
+                print(f"timeframe and tasks: {taskObj}")
+                break
+            elif int(whatTime) in taskObj:
+                del taskObj[int(whatTime)]
+                print(f"here is updated time and task list: {taskObj}")
+            else:
+                print(taskObj)
+                continue
+        elif timeOrTask.lower() == 'task':
+            whatTask = input("what task has been completed: (enter 'done' when finished) ")
+            to_remove = []
+            for key, value in taskObj.items():
+                if whatTask in value:
+                    value.remove(whatTask)
+                    print(f"here is updated {taskObj}")
+                    if not value:
+                        to_remove.append(key)
+            for key in to_remove:
+                del taskObj[key]
+            else:
+                print(taskObj)
+                continue
+        elif timeOrTask == 'no':
+            print(taskObj)
+            break
+        else:
+            print("please enter 'time' or 'task'")
+            continue
+    print("Scheduled tasks:")
+    for time_slot in sorted(taskObj.keys()):
+        print(f"{time_slot}: {', '.join(taskObj[time_slot])}")
+    
+
+taskTimeSlot()
+
 
 # 7. The Quiz Game
 # Objective:
