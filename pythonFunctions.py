@@ -144,15 +144,15 @@ def tempConversion():
 # The aim of this assignment is to create a program that helps users make a shopping list.
 
 # Task 1: Write a function that lets the user add items to a list.
-# def listMaker():
-#     shoppingList =[]
-#     while True:
-#         addItem = input("What would you like to add? (enter 'done' to finish) ")
-#         if addItem.lower() == "done":
-#             break
-#         else:
-#             shoppingList.append(addItem)
-#             print(shoppingList)
+def listMaker():
+    shoppingList =[]
+    while True:
+        addItem = input("What would you like to add? (enter 'done' to finish) ")
+        if addItem.lower() == "done":
+            break
+        else:
+            shoppingList.append(addItem)
+            print(shoppingList)
 # listMaker()
 
 
@@ -202,7 +202,7 @@ def listMaker():
 
     for items in shoppingList:
         print(f" you still need to buy {items}")
-listMaker()
+# listMaker()
 
 
 # 5. The Grade Analyzer
@@ -210,8 +210,46 @@ listMaker()
 # The aim of this assignment is to analyze a set of grades and provide statistics.
 
 # Task 1: Code a function to calculate the average grade.
+grades = [90, 85, 70, 95, 60, 75, 80, 92, 88, 85, 45, 30, 55, 65, 72]
+def avgGrades(gradelist):
+    count = 0
+    for idx in range(len(gradelist)):
+      count += gradelist[idx]
+    print(count / len(gradelist))
+
+# avgGrades(grades)
+
+
 # Task 2: Implement a function to find the highest and lowest grade.
+def high_low_grade(gradelist):
+    highNum = 0
+    lowNum = float("inf")
+    for idx in range(len(gradelist)):
+        if gradelist[idx] > highNum:
+            highNum = gradelist[idx]
+
+        if gradelist[idx] < lowNum:
+            lowNum = gradelist[idx]
+    print(f'Your highest grade is {highNum} and lowest is {lowNum}')
+# high_low_grade(grades)
+
 # Task 3: Create a feature that categorizes grades into letter grades (A, B, C, etc.).
+def letterGrades(gradelist):
+    gradesObj = {"A": [], "B": [], "C": [], "D": [], "F": []}
+    for grade in gradelist:
+        if grade >= 90:
+            gradesObj["A"].append(grade)
+        elif grade >= 80:
+            gradesObj["B"].append(grade)
+        elif grade >= 70:
+            gradesObj["C"].append(grade)
+        elif grade >= 60:
+            gradesObj["D"].append(grade)
+        else:
+            gradesObj["F"].append(grade)
+    print(gradesObj)
+# letterGrades(grades)
+
 
 # 6. The Daily Planner
 # Objective:
