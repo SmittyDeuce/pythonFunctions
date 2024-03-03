@@ -458,8 +458,38 @@ def quizgame():
 # The aim of this assignment is to create a program that plans a journey, calculating travel times and stops.
 
 # Task 1: Code a function that calculates travel time based on distance and speed.
+def travelTime(distance, speed):
+    time = distance / speed
+    time = int(time)
+    return time
+# travelTime(50,10)
+
+
 # Task 2: Create a feature that suggests stops based on the length of the journey.
+def stops(distance, speed):
+    time = travelTime(distance, speed)
+    if time <= 4:
+        print("Not too bad of a drive I suggest along the way we stop for gas halfway")
+    elif time >=5 and time <= 10:
+        print("I suggest we stop for gas, food, restroom, and a break to decompress and stretch our legs")
+    elif time >= 11 and time <= 15:
+        print(" we're going to need stops for gas, restroom, maybe sleep, time to eat as well as stretch our legs and unwind")
+    else:
+        print(f"{time} HOURS?!?!, we should've took a plane, thats gas money, food, lodging, on top off traffic")
+# stops(3493, 70)
+
+
 # Task 3: Implement user input for starting point, destination, and preferred travel speed.
+def start_end():
+    starting = input("Where are we starting from? ")
+    destination = input("Where is the final stop? ")
+    speed = input("how fast do we plan on going ")
+    print(f"We are starting at {starting} and ending up at {destination}, hopefully we can keep a pace of {speed} MPH but that's on traffic")
+start_end()
+
+
+
+
 
 # 9. The Personal Library Organizer
 # Objective:
