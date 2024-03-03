@@ -485,10 +485,7 @@ def start_end():
     destination = input("Where is the final stop? ")
     speed = input("how fast do we plan on going ")
     print(f"We are starting at {starting} and ending up at {destination}, hopefully we can keep a pace of {speed} MPH but that's on traffic")
-start_end()
-
-
-
+# start_end()
 
 
 # 9. The Personal Library Organizer
@@ -496,6 +493,24 @@ start_end()
 # The aim of this assignment is to create a system that organizes a personal library of books.
 
 # Task 1: Write a function to add books with title, author, and genre.
+libraryObj = {}
+def library():
+    while True:
+        author = input("Give the name of an author: (enter 'done' when finished) ")
+        if author.lower() != 'done':
+            libraryObj[author] =[]
+            print(libraryObj)
+            
+        if author.lower =="done":
+            print(libraryObj)
+            title = "Enter a book title: (enter 'done' when finished) "
+        
+
+library()
+
+
+
+
 # Task 2: Code a search function to find books by title or author.
 # Task 3: Implement a way to display books sorted by genre or author.
 
