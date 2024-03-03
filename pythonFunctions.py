@@ -1,3 +1,4 @@
+from random import random, choice
 # 1. The Welcoming Program
 # Objective:
 # The aim of this assignment is to create a simple program that greets users and responds based on their input.
@@ -330,7 +331,7 @@ def taskTimeSlot():
 def taskTimeSlot():
     taskObj ={}
     while True:
-        taskName = input("What is the Task: (enter 'done' when finished) ")
+        taskName = input("What Task(s) do you have to do?: (enter 'done' when finished) ")
         if taskName.lower() == 'done':
             print(f"Todays timeframe and tasks: {taskObj}")
             break
@@ -359,7 +360,7 @@ def taskTimeSlot():
                 print(taskObj)
                 continue
         elif timeOrTask.lower() == 'task':
-            whatTask = input("what task has been completed: (enter 'done' when finished) ")
+            whatTask = input("what task has been completed: (enter 'done' when finished or type 'none) ")
             to_remove = []
             for key, value in taskObj.items():
                 if whatTask in value:
@@ -372,7 +373,7 @@ def taskTimeSlot():
             else:
                 print(taskObj)
                 continue
-        elif timeOrTask == 'no':
+        elif timeOrTask == 'none':
             print(taskObj)
             break
         else:
@@ -383,7 +384,7 @@ def taskTimeSlot():
         print(f"{time_slot}: {', '.join(taskObj[time_slot])}")
     
 
-taskTimeSlot()
+# taskTimeSlot()
 
 
 # 7. The Quiz Game
@@ -391,8 +392,66 @@ taskTimeSlot()
 # The aim of this assignment is to create a quiz game that asks questions and checks answers.
 
 # Task 1: Develop a list of questions and answers.
+questions = [
+    "What is the capital of France? ",
+    "Who wrote 'Romeo and Juliet'? ",
+    "What is the chemical symbol for water? ",
+    "Which planet is known as the Red Planet? ",
+    "What is the largest mammal in the world? ",
+    "Who painted the Mona Lisa? ",
+    "What is the tallest mountain in the world? ",
+    "Who was the first person to step on the moon? ",
+    "What is the main ingredient in guacamole? ",
+    "What is the capital of Japan? "
+]
+
+answers = [
+    "Paris",
+    "William Shakespeare",
+    "H2O",
+    "Mars",
+    "Blue Whale",
+    "Leonardo da Vinci",
+    "Mount Everest",
+    "Neil Armstrong",
+    "Avocado",
+    "Tokyo"
+]
+
+
 # Task 2: Write a function that quizzes the user and takes their answers.
 # Task 3: Score the quiz and give the user feedback on their performance.
+
+# sorry I did task 2 with the code below not knowing task 3 would be what is was
+
+def quizgame():
+    questionsLeft = len(questions)
+    correct = 0
+    wrong = 0
+    while True:
+        chosenQuestion = choice(questions)
+        correct_answer_index = questions.index(chosenQuestion)
+        user_answer = input(chosenQuestion + " ")
+
+        if user_answer.lower() == answers[correct_answer_index].lower():
+            correct += 1
+            print("Correct")
+
+            print(f"you have {correct} right and {wrong} wrong: {questionsLeft} questions remaining")
+            questionsLeft -=1
+        else:
+            wrong += 1
+            print(f"Incorrect the correct answer is {answers[correct_answer_index]}")
+
+            print(f"you have {correct} right and {wrong} wrong: {questionsLeft} questions remaining")
+            questionsLeft -=1
+        if questionsLeft == 0:
+            print("no more questions Thanks For Playing!!")
+            print(f"You got, {correct}, out of, {len(questions)}, questions correct")
+            break
+# quizgame()
+
+
 
 # 8. The Journey Planner
 # Objective:
