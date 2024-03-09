@@ -496,23 +496,46 @@ def start_end():
 libraryObj = {}
 def library():
     while True:
-        author = input("Give the name of an author: (enter 'done' when finished) ")
-        if author.lower() != 'done':
-            libraryObj[author] =[]
-            print(libraryObj)
-            
-        if author.lower =="done":
-            print(libraryObj)
-            title = "Enter a book title: (enter 'done' when finished) "
-        
+        author = input("Enter an author's name: (Enter 'done' when finished) ")
+        if author == "done":
+            break
 
-library()
+        books = []
+        while True:
+            title = input("Enter a book title: (Enter 'done' when finished) ")
+            if title == 'done':
+                break
+
+            genre = input("Enter the genre of the book: (Enter 'done' when finished) ")
+            if genre == 'done':
+                break
+            
+            bookDetails = {'Title': title, "Genre": genre}
+            books.append(bookDetails)
+
+        libraryObj[author] = books
+    return libraryObj
 
 
 
 
 # Task 2: Code a search function to find books by title or author.
+def author_or_title():
+    libraryObj = library()
+    print(libraryObj)
+    for authorName, value in libraryObj.items():
+        searchBy = input("")
+
+
+
+author_or_title()
+
+
+
 # Task 3: Implement a way to display books sorted by genre or author.
+
+
+
 
 # 10. The Fitness Tracker
 # Objective:
