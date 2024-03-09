@@ -522,12 +522,19 @@ def library():
 # Task 2: Code a search function to find books by title or author.
 def author_or_title():
     libraryObj = library()
-    print(libraryObj)
-    for authorName, value in libraryObj.items():
-        searchBy = input("")
-
-
-
+    # print(libraryObj)
+    while True:
+        for authorName, books in libraryObj.items():
+            # print("author: ", authorName)
+            # print("books: ", books)
+            for book in books:
+                # print("book: ", book)
+                for key, value in book.items():
+                    searchBy = input("Enter 'Author' or 'Title' to search ")
+                    if searchBy.lower() == 'author':
+                        print(authorName)
+                    if searchBy.lower() == 'title':
+                        print(key ,value)
 author_or_title()
 
 
