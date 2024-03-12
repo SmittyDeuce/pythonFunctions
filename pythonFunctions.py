@@ -493,6 +493,7 @@ def start_end():
 # The aim of this assignment is to create a system that organizes a personal library of books.
 
 # Task 1: Write a function to add books with title, author, and genre.
+    
 libraryObj = {}
 def library():
     while True:
@@ -516,7 +517,7 @@ def library():
         libraryObj[author] = books
     return libraryObj
 
-
+# library()
 
 
 # Task 2: Code a search function to find books by title or author.
@@ -577,14 +578,66 @@ def genre_or_author():
                         genreSorted = sorted(genreList)
         print(genreSorted)
                     
-genre_or_author()
+# genre_or_author()
 
 # 10. The Fitness Tracker
 # Objective:
 # The aim of this assignment is to create a program that tracks fitness activities and calories burned.
 
 # Task 1: Develop a function to log different fitness activities and their duration.
+def fitness():
+    activityObj = {}
+    fitness_activities = ["Running", "Cycling", "Swimming", "Yoga", "Weightlifting"]
+    duration = [30, 30, 30, 20, 30]
+
+    for idx, activity in enumerate(fitness_activities):
+        # print(idx, activity)
+        if activity not in activityObj:
+            activityObj[activity] = []
+
+            activityObj[activity].append(duration[idx])
+    return activityObj
+
+# print(fitness())   
+
 # Task 2: Write a function that estimates calories burned based on the activity and duration.
+
+def calories():
+    exerciseObj = fitness()
+    byActivity = input('What calorie burn do you want to know?:"Running", "Cycling", "Swimming", "Yoga", "Weightlifting" ')
+    if byActivity.lower() == 'running':
+        print(f'Running for {exerciseObj["Running"]} burns approx. 200-300 calories')
+    elif byActivity.lower() == 'cycling':
+        print(f'Cycling for {exerciseObj["Cycling"]} burns approx. 150-250 calories')
+    elif byActivity.lower() == 'swimming':
+        print(f'Swimming for {exerciseObj["Swimming"]} burns approx. 250-350 calories')
+    elif byActivity.lower() == 'weightlifting':
+        print(f'Weightlifting for {exerciseObj["Weightlifting"]} burns approx. 90-150 calories')
+    elif byActivity.lower() == 'yoga':
+        print(f'Yoga for {exerciseObj["Yoga"]} burns approx. 50-100 calories')
+    else:
+        print("Invalid Response")
+
+
+# calories()
+
+
 # Task 3: Create a summary function that provides a report of all activities and total calories burned for the day.
+
+def summary():
+    exerciseObj = fitness()
+    total_calories = 0
+
+    print("Activity Summary:")
+    for activity, durations in exerciseObj.items():
+        total_duration = sum(durations)
+        total_calories += total_duration * 10  # https://www.google.com/search?q=on+avg+how+muchn+do+people+burn+calies+per+min+working+out&client=opera-gx&sca_esv=a094c7c2a3a5cbf6&ei=zBLwZc-hFYjIkPIPwqqXoAQ&ved=0ahUKEwjPt9rWp-6EAxUIJEQIHULVBUQQ4dUDCBA&uact=5&oq=on+avg+how+muchn+do+people+burn+calies+per+min+working+out
+        print(f"{activity}: {total_duration} minutes")
+
+    print(f"\nTotal Calories Burned for the Day: {total_calories} calories")
+
+
+# summary()
+
 
 # Each of these assignments is designed to challenge the learner to apply the concepts discussed, such as user input, type conversion, string formatting, and function creation, while also ensuring they practice error handling and user-friendly output formatting.
