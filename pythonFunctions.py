@@ -548,14 +548,36 @@ def author_or_title():
                 break # breaks out of outer loop (2)
         if done_flag:
             break # breaks out of While loop (1)
-author_or_title()
+# author_or_title()
 
 
 
 # Task 3: Implement a way to display books sorted by genre or author.
+def genre_or_author():
+    libraryObj = library()
+    genreList = []
+    # print(libraryObj)
+    # for authorName, books in libraryObj.items():
+    #     for book in books:
+    #         for key,value in book.items():
+    #             genreList.append(value)
+    #             genreSorted = sorted(genreList)
+    #             print(genresorted)
 
-
-
+    sortBy = input("Enter 'Genre' or 'Author' to sort: 'done' when finished ")
+    for authorName, books in libraryObj.items():
+        if sortBy.lower() == 'author':
+            print(sorted(libraryObj))
+        
+        elif sortBy.lower() == 'genre':
+            for book in books:
+                for key, value in book.items():
+                    if key.lower() == 'genre':
+                        genreList.append(value)
+                        genreSorted = sorted(genreList)
+        print(genreSorted)
+                    
+genre_or_author()
 
 # 10. The Fitness Tracker
 # Objective:
