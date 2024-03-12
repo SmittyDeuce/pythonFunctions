@@ -523,18 +523,31 @@ def library():
 def author_or_title():
     libraryObj = library()
     # print(libraryObj)
-    while True:
-        for authorName, books in libraryObj.items():
+    while True: # main loop (1)
+        done_flag = False # to control the while loop
+        for authorName, books in libraryObj.items(): # outer loop (2)
             # print("author: ", authorName)
             # print("books: ", books)
-            for book in books:
+            for book in books: # 2nd inner loop (3)
                 # print("book: ", book)
-                for key, value in book.items():
-                    searchBy = input("Enter 'Author' or 'Title' to search ")
-                    if searchBy.lower() == 'author':
+                for key, value in book.items(): # innermost loop (4)
+                    searchBy = input("Enter 'Author' or 'Title' to search ('done' when finished) ")
+                    if searchBy.lower() == 'done':
+                        done_flag = True # make true to exit while loop
+                        break # breaks innermost loop (4)
+                    elif searchBy.lower() == 'author':
                         print(authorName)
-                    if searchBy.lower() == 'title':
+                    elif searchBy.lower() == 'title'and "Title" in key:
                         print(key ,value)
+                    else:
+                        print("Invalid Response")
+                        continue
+                if done_flag:
+                    break # breaks 2nd most inner loop (3)
+            if done_flag:
+                break # breaks out of outer loop (2)
+        if done_flag:
+            break # breaks out of While loop (1)
 author_or_title()
 
 
